@@ -1,4 +1,4 @@
-0x19. C - Stacks, Queues - LIFO, FIFO
+00x19. C - Stacks, Queues - LIFO, FIFO
 
     By Julien Barbier
         Weight: 2
