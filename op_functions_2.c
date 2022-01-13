@@ -15,7 +15,7 @@ void pint(stack_t **head, unsigned int line_number)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 		free_stack(*head);
-		fclose(read_file);
+		fclose(file_read);
 		exit(EXIT_FAILURE);
 	}
 	fprintf(stdout, "%d\n", (*head)->n);
@@ -36,7 +36,7 @@ void pop(stack_t **head, unsigned int line_number)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		free_stack(*head);
-		fclose(read_file);
+		fclose(file_read);
 		exit(EXIT_FAILURE);
 	}
 
@@ -63,7 +63,7 @@ void swap(stack_t **head, unsigned int line_number)
 	{
 		fprintf(stderr, "L%d can't swap, stack too short\n", line_number);
 		free_stack(*head);
-		fclose(read_file);
+		fclose(file_read);
 		exit(EXIT_FAILURE);
 	}
 	i = (*head)->n;
@@ -87,7 +87,7 @@ void add(stack_t **head, unsigned int line_number)
 	{
 		fprintf(stderr, "L%d can't add, stack too short\n", line_number);
 		free_stack(*head);
-		fclose(read_file);
+		fclose(file_read);
 		exit(EXIT_FAILURE);
 	}
 	sum = (*head)->n + (*head)->next->n;

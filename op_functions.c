@@ -18,6 +18,8 @@ void push(stack_t **head, unsigned int line_number)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		free_stack(*head);
+		fclose(file_read);
+		free(new);
 		exit(EXIT_FAILURE);
 	}
 	if (!is_number(token))
@@ -25,6 +27,7 @@ void push(stack_t **head, unsigned int line_number)
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free_stack(*head);
 		free(new);
+		fclose(file_read);
 		exit(EXIT_FAILURE);
 	}
 	new->n = atoi(token);
