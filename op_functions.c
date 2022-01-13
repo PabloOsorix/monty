@@ -24,6 +24,7 @@ void push(stack_t **head, unsigned int line_number)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free_stack(*head);
+		free(new);
 		exit(EXIT_FAILURE);
 	}
 	new->n = atoi(token);
@@ -45,17 +46,10 @@ void push(stack_t **head, unsigned int line_number)
  */
 void pall(stack_t **h, unsigned int line_number)
 {
-	stack_t *tmp = NULL;
+	stack_t *tmp = *h;
 	(void)line_number;
 
-	if (h == NULL)
-	{
-		return;
-	}
-
-	tmp = *h;
-
-	while (tmp != NULL)
+	while (tmp)
 	{
 		printf("%d\n", (tmp)->n);
 		tmp = (tmp)->next;
