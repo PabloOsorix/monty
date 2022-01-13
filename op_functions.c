@@ -26,7 +26,6 @@ void push(stack_t **head, unsigned int line_number)
 		fprintf(stderr, "Error: malloc failed\n");
 		free_stack(*head);
 		fclose(file_read);
-		free(new);
 		exit(EXIT_FAILURE);
 	}
 	if (!is_number(token))
@@ -42,7 +41,7 @@ void push(stack_t **head, unsigned int line_number)
 	new->prev = NULL;
 	*head = new;
 	if (new->next != NULL)
-		(new->next)->prev = new;
+		new->next->prev = new;
 }
 
 

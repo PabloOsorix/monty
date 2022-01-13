@@ -21,16 +21,10 @@ int main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	}
 
-	if (buffer ==  NULL)
-	{
-		fprintf(stderr, "Error: malloc failed\n");
-		exit (EXIT_FAILURE);
-	}
 	file_name = argv[1], file_read = fopen(file_name, "r");
 	if (file_read == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", file_name);
-		free_stack(stack);
 		return (EXIT_FAILURE);
 	}
 	for (i = 1; fgets(buffer, sizeof(buffer), file_read) != NULL; i++)
@@ -42,7 +36,6 @@ int main(int argc, char *argv[])
 			if (select_op == NULL)
 			{
 				fprintf(stderr, "L%d: unknown instruction %s\n", i, token);
-				free_stack(stack);
 				fclose(file_read);
 				return (EXIT_FAILURE);
 			}
