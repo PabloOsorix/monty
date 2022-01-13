@@ -8,7 +8,6 @@
 #include <string.h>
 #include <ctype.h>
 #define DELIM " \t\n"
-extern FILE *file_read;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)

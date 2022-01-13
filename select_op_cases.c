@@ -21,7 +21,7 @@ void (*select_opcodes(char *token))(stack_t **stack, unsigned int line_number)
 		{"nop", nop},
 		{NULL, NULL}};
 
-	while(op_codes[i].opcode != NULL)
+	while (op_codes[i].opcode != NULL)
 	{
 		if (strcmp(op_codes[i].opcode, token) == 0)
 		{
