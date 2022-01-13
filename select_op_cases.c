@@ -12,6 +12,8 @@ void (*select_opcodes(char *token))(stack_t **stack, unsigned int line_number)
 	int i = 0;
 
 	instruction_t op_codes[] = {
+		{"push", push},
+		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},

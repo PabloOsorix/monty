@@ -6,6 +6,10 @@
 #include <unistd.h>
 #include <stddef.h>
 #include <string.h>
+#include <ctype.h>
+#define DELIM " \t\n"
+extern FILE *file_read;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -39,11 +43,14 @@ typedef struct instruction_s
 char **file_tok(char *buffer);
 void (*select_opcodes(char *token))(stack_t **stack, unsigned int line_number);
 int is_number(char* string);
-void pop(stack_t **head, unsigned int line_number);
+void push(stack_t **head, unsigned int line_number);
+void pall(stack_t **h, unsigned int line_number);
+void pint(stack_t **head, unsigned int line_number);
 void pop(stack_t **head, unsigned int line_number);
 void swap(stack_t **head, unsigned int line_number);
 void add(stack_t **head, unsigned int line_number);
 void nop(stack_t **head, unsigned int line_number);
-void pint(stack_t **head, unsigned int line_number);
+int is_number(char* string);
+void free_stack(stack_t *stack);
 
 #endif
