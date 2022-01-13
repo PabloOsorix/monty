@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "monty.h"
 
+FILE *file_read = NULL;
 /**
  * main - This is the bytecodes interpreter.
  *@argc: Total number of arguments in argv.
@@ -9,7 +10,6 @@
  */
 int main(int argc, char *argv[])
 {
-	FILE *file_read = NULL;
 	char buffer[1024], *file_name = NULL, *token = NULL;
 	unsigned int i;
 	stack_t *stack = NULL;
@@ -19,6 +19,12 @@ int main(int argc, char *argv[])
 	{
 		printf("USAGE: monty file\n");
 		return (EXIT_FAILURE);
+	}
+
+	if (buffer ==  NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit (EXIT_FAILURE);
 	}
 	file_name = argv[1], file_read = fopen(file_name, "r");
 	if (file_read == NULL)
