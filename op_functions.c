@@ -16,7 +16,7 @@ void push(stack_t **head, unsigned int line_number)
 	}
 
 	if (!is_number(token)) {
-		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		fclose(file_read);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
@@ -169,7 +169,13 @@ void nop(stack_t **head, unsigned int line_number)
 
 }
 
-/*@todo comment*/
+/**
+ *is_number - doesn't do anything.
+ *@head: Pointer to the head of the stack (double linked list)
+ *@line_number: number line of file read_file.
+ *Return: None, is a void.
+ */
+
 int is_number(char* string)
 {
 	size_t i = 0;
