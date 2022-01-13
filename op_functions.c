@@ -13,6 +13,13 @@ void push(stack_t **head, unsigned int line_number)
 	stack_t *new;
 	char *token = strtok(NULL, DELIM);
 
+	if (!token)
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		free_stack(*head);
+		fclose(file_read);
+		exit(EXIT_FAILURE);
+	}
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
