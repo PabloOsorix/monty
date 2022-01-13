@@ -50,11 +50,11 @@ void push(stack_t **head, unsigned int line_number)
 void pall(stack_t **h, unsigned int line_number)
 {
 	stack_t *tmp = *h;
-	(void)line_number;
 
 	while (tmp)
 	{
-		printf("%d\n", (tmp)->n);
+		fprintf(stdout, "%d\n", (tmp)->n);
 		tmp = (tmp)->next;
 	}
+	(void)line_number;
 }
