@@ -79,6 +79,7 @@ void sub(stack_t **head, unsigned int line_number)
 	if ((*head) == NULL || ((*head)->next == NULL))
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
+		free(delete_tnode);
 		free_stack(*head);
 		fclose(file_read);
 		exit(EXIT_FAILURE);
