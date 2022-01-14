@@ -125,3 +125,37 @@ void _div(stack_t **head, unsigned int line_number)
 		(*head)->prev = NULL;
 	free(delete_tnode);
 }
+
+/**
+ * mul - This funtion multiplies the second top element of 
+ * the stack with the top element of the stack.
+ * @head: Pointer to the head of the stack.
+ * @line_number: current line of the file_read.
+ * Return: None is a void.
+ */
+
+void _mul(stack_t **head, unsigned int line_number)
+{
+	int _mul = 0;
+	stack_t *delete_tnode = NULL;
+
+	if ((*head) == NULL || ((*head)->next == NULL))
+	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
+		free_stack(*head);
+		fclose(file_read);
+		exit(EXIT_FAILURE);
+	}
+	_mul = (*head)->next->n * (*head)->n ;
+	(*head)->next->n = _mul;
+	delete_tnode = *head;
+	*head = delete_tnode->next;
+	if (*head != NULL)
+		(*head)->prev = NULL;
+	free(delete_tnode);	
+
+
+
+
+}
+
