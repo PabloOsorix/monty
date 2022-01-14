@@ -78,14 +78,14 @@ void sub(stack_t **head, unsigned int line_number)
 
 	if ((*head) == NULL || ((*head)->next == NULL))
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
 		free_stack(*head);
 		fclose(file_read);
 		exit(EXIT_FAILURE);
 	}
 	sub = (*head)->n - (*head)->next->n;
 	delete_tnode = *head;
-	(*head)->next->n = sum;
+	(*head)->next->n = sub;
 	*head = delete_tnode->next;
 	if (*head != NULL)
 		(*head)->prev = NULL;
