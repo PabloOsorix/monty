@@ -39,4 +39,5 @@ void free_stack(stack_t *stack)
 		return;
 	free_stack(stack->next);
 	free(stack);
+
 }
