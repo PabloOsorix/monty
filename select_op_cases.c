@@ -21,6 +21,7 @@ void (*select_opcodes(char *token))(stack_t **stack, unsigned int line_number)
 		{"nop", nop},
 		{"sub", sub},
 		{"div", _div},
+		{"mul", _mul},
 		{NULL, NULL}};
 
 	while (op_codes[i].opcode != NULL)
