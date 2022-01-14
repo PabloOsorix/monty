@@ -73,7 +73,6 @@ void pall(stack_t **h, unsigned int line_number)
  */
 void sub(stack_t **head, unsigned int line_number)
 {
-	int sub = 0;
 	stack_t *delete_tnode = NULL;
 
 	if ((*head) == NULL || ((*head)->next == NULL))
