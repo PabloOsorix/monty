@@ -51,5 +51,6 @@ void add(stack_t **head, unsigned int line_number);
 void nop(stack_t **head, unsigned int line_number);
 int is_number(char* string);
 void free_stack(stack_t *stack);
+void sub(stack_t **head, unsigned int line_number);
 
 #endif
