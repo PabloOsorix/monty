@@ -83,9 +83,8 @@ void sub(stack_t **head, unsigned int line_number)
 		fclose(file_read);
 		exit(EXIT_FAILURE);
 	}
-	sub = (*head)->n - (*head)->next->n;
+	(*head)->next->n -= (*head)->n ;
 	delete_tnode = *head;
-	(*head)->next->n = sub;
 	*head = delete_tnode->next;
 	if (*head != NULL)
 		(*head)->prev = NULL;
