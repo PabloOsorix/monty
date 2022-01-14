@@ -61,6 +61,33 @@ void pall(stack_t **h, unsigned int line_number)
 	{
 		fprintf(stdout, "%d\n", (tmp)->n);
 		tmp = (tmp)->next;
-	}
 	(void)line_number;
+	}
+}
+
+/**
+ * sub - This opcode subtracts the top element
+ * of the stack from the second top element of the stack.
+ * @head: Pointer to head of the stack.
+ * @line_number: line number of the file.
+ */
+void sub(stack_t **head, unsigned int line_number)
+{
+	int sub = 0;
+	stack_t *delete_tnode;	
+
+	if ((*head) == NULL || ((*head)->next == NULL))
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		free_stack(*head);
+		fclose(file_read);
+		exit(EXIT_FAILURE);
+	}
+	sub = (*head)->n - (*head)->next->n;
+	delete_tnode = *head;
+	(*head)->next->n = sum;
+	*head = delete_tnode->next;
+	if (*head != NULL)
+		(*head)->prev = NULL;
+	free(delete_tnode);
 }
